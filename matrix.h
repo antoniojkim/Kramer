@@ -1,6 +1,8 @@
 #ifndef __HEADER__MATRIX
 #define __HEADER__MATRIX
 
+#include <stdbool.h>
+
 typedef struct {
     int domain_dim;
     int range_dim;
@@ -24,5 +26,6 @@ Matrix * convolution(Matrix *, Matrix *);
 double trace(Matrix *);
 double determinant(Matrix *);
 
-
+bool compareDim(Matrix *, Matrix *);
+bool isSquare(Matrix *);
 #endif //__HEADER__MATRIX
