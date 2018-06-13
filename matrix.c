@@ -29,34 +29,6 @@ Matrix * zeroMat(int domain_dim, int range_dim){
 
 }
 
-Matrix * add(Matrix *p, Matrix *q){
-    
-    if (compareDim(p, q)){
-        Matrix s, *ps;
-        ps = &s;
-        ps -> domain_dim = p -> domain_dim;
-        ps -> range_dim = p -> range_dim;
-        ps -> entries = p -> entries; // initialize to one of the matrices
-        for (int i = 0; i < p -> domain_dim; i++){
-            for (int j = 0; j < p -> range_dim; j++){
-                *(ps -> entries) = *(p -> entries) + *(q -> entries);
-                (p -> entries)++;
-                (q -> entries)++;
-                (ps -> entries)++;
-            }
-        }
-
-        return ps;
-    }else{
-
-        printf("Error dimension mismatch!\n");
-        fflush(stdout);
-        Matrix *err;
-        return err;
-    }
-
-}
-
 void displayMat(Matrix *pmat){
     double *entries = pmat -> entries;
     int n = pmat -> domain_dim;
@@ -71,28 +43,6 @@ void displayMat(Matrix *pmat){
         fflush(stdout);
     }
     fflush(stdout);
-}
-
-double trace(Matrix *pmat){
-    // ths function is not working right
-    double *entries = pmat -> entries;
-    int n = pmat -> domain_dim;
-    int m = pmat -> range_dim;
-    double tr;
-
-    if (isSquare(pmat)){
-        for (int i = 0; i < n; i++){
-            tr += *(entries + i * n + i);
-        }
-        return tr;
-    }else{
-        // how to make proper error messages
-        printf("ERR: dimension mismatch!");
-        return 0.0;
-    }
-
-
-
 }
 
 bool compareDim(Matrix *p, Matrix *q){
