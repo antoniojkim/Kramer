@@ -4,6 +4,7 @@
 
 int main() {
     
-    Matrix *identity = eyeMat(2);
-    
+    Matrix *id = eyeMat(2);
+    displayMat(id);
+    return 0;
 }
