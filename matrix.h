@@ -21,5 +21,8 @@ bool compareDim(Matrix *, Matrix *);
 bool isSquare(Matrix *);
 // should probably find a more suitable name for this function
 bool commute(Matrix *, Matrix *); // checks if two matrices can be multiplied
+bool isUpperTriangular(Matrix *);
+bool isLowerTriangular(Matrix *);
+bool isDiagonalMat(Matrix *);
 
 #endif //__HEADER__MATRIX

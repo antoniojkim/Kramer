@@ -74,3 +74,45 @@ bool commute(Matrix *p, Matrix *q){
         return false;
     }
 }
+
+bool isLowerTriangular(Matrix *p){
+
+    if (isSquare(p)){
+        int n = p -> domain_dim;
+        for (int i = 1; i < n; i++){
+            for (int j = 0; j < i; j++){
+                if ((p -> entries)[i * n + j] != 0){
+                    return false;
+                }
+            }
+        }
+        return true;
+    }else{
+        return false;
+    }
+}
+
+bool isUpperTriangular(Matrix *p){
+    if (isSquare(p)){
+        int n = p -> domain_dim;
+        for (int i = 0; i < n - 1; i++){
+            for (int j = i + 1; j < n; j++){
+                if ((p -> entries)[i * n + j] != 0){
+                    return false;
+                }
+            }
+        }
+        return true;
+    }else{
+        return false;
+    }
+    
+}
+
+bool isDiagonalMat(Matrix *p){
+    if (isUpperTriangular(p) && isLowerTriangular(p)){
+        return true;
+    }else{
+        return false;
+    }
+}

@@ -1,6 +1,20 @@
 #include "unaryOps.h"
 #include <stdio.h>
 
+
+Matrix * transpose(Matrix *p){
+    // check if p is not a (0, 0) matrix
+    Matrix *transMat = zeroMat(p -> domain_dim, p -> range_dim);
+    double a_ji;
+    for (int i = 0; i < p -> domain_dim; i++){
+        for (int j = 0; j < p -> range_dim; j++){
+            a_ji = (p -> entries)[j * (p -> range_dim) + i];
+            (transMat -> entries)[i * (p -> range_dim) + j] = a_ji;
+        }
+    }
+    return transMat;
+}   
+
 double trace(Matrix *pmat){
     
     double tr = 0.0;
@@ -24,10 +38,14 @@ double determinant(Matrix *p){
             b = (p -> entries)[1];
             c = (p -> entries)[2];
             d = (p -> entries)[3];
-            return (a * c - b * d);
+            return (a * d - b * c);
         }else{
-            // something recursive for sure
+            // something recursive for sure (leibniz?)
+            return 0.0;
         }
         
+    }else{
+        // someting to add here
+        return 0.0;
     }
 }
