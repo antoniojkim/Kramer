@@ -1,24 +1,20 @@
-#include "binaryOps.h"
 #include "unaryOps.h"
+#include "binaryOps.h"
 #include <stdio.h>
 #include <stdlib.h>
 
 int main() {
     
-    Matrix *id = eyeMat(2);
-    int m = id -> range_dim;
-    *(id -> entries + 1 * m + 1) = 3.0;
-    printf("%f", *(id -> entries + 0 * m + 0));
-    printf("\n");
-    fflush(stdout);
-    printf("%f", *((id -> entries) + 0 * m + 1));
-    printf("\n");
-    fflush(stdout);
-    printf("%f", *((id -> entries) + 1 * m + 0));
-    printf("\n");
-    fflush(stdout);
-    printf("%f", *((id -> entries) + 1 * m + 1));
-    printf("\n");
-    fflush(stdout);
+    Matrix *p = zeroMat(2, 1);
+    (p -> entries)[0] = 2.0;
+    (p -> entries)[1] = 1.0;
+    displayMat(p);
+    Matrix *q = zeroMat(1, 2);
+    (q -> entries)[0] = -1.0;
+    (q -> entries)[1] = 8.0;
+    displayMat(q);
+    Matrix *r = mul(p, q);
+    displayMat(r);
+
     return 0;
 }
