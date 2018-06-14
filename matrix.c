@@ -1,30 +1,31 @@
 #include "matrix.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 Matrix * eyeMat(int dim){
 
-    Matrix mat, *pmat;
-    pmat = &mat;
-    double *p;
-    p = (double *) malloc(sizeof(double) * dim * dim);
-    pmat -> domain_dim = dim;
-    pmat -> range_dim = dim;
+    Matrix *pmat;
+    double *pe;
+    
+    pmat = zeroMat(dim, dim);
+    pe = pmat -> entries;
     for (int i = 0; i < dim; i++){
-            *(p + (i * dim) + i) = 1.0;
+            *(pe + i * (dim + 1)) = 1.0;
     }
-    pmat -> entries = p;
+    
     return pmat;
 }
 
 Matrix * zeroMat(int domain_dim, int range_dim){
 
-    Matrix mat, *pmat;
-    pmat = &mat;
+    Matrix *pmat;
+    pmat = (Matrix *) malloc(sizeof(Matrix));
     pmat -> domain_dim = domain_dim;
     pmat -> range_dim = range_dim;
-    // make sure when indexing, that n = domain_dim and m = range_dim proper indexing
+    
     pmat -> entries = (double *) calloc(domain_dim * range_dim, sizeof(double));
+    //memset(&(pmat -> entries), 0.0, sizeof(double) * sizeof(pmat -> entries));
     return pmat;
 
 }
@@ -36,20 +37,20 @@ void displayMat(Matrix *pmat){
 
     for (int i = 0; i < n; i++){
         for (int j = 0; j < m; j++){
-            printf(" %6.2f ", *(entries + (i * m) + j));
+            printf(" %6.2f", *entries);
+            entries += 1;
             fflush(stdout);
         }
         printf("\n");
         fflush(stdout);
     }
     fflush(stdout);
+    return;
 }
 
 bool compareDim(Matrix *p, Matrix *q){
 
-    if ((p -> domain_dim == q -> domain_dim) 
-        && 
-        (p -> range_dim == q -> range_dim)){
+    if ((p -> domain_dim == q -> domain_dim) && (p -> range_dim == q -> range_dim)){
             return true;
         }
     else
@@ -58,6 +59,7 @@ bool compareDim(Matrix *p, Matrix *q){
     }
 }
 
+// works
 bool isSquare(Matrix *p){
 
     if (p -> domain_dim == p -> range_dim){
