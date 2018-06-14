@@ -8,6 +8,6 @@ Matrix * sub(Matrix *, Matrix *);
 Matrix * scale(Matrix *, double);
 Matrix * mul(Matrix *, Matrix *);
 
-Matrix * convolution(Matrix *, Matrix *);
+Matrix * convolve(Matrix *, Matrix *);
 
 #endif //__HEADER_BINARY

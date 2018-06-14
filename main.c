@@ -1,5 +1,5 @@
-#include "unaryOps.h"
-#include "binaryOps.h"
+#include "LinearAlgebra/unaryOps.h"
+#include "LinearAlgebra/binaryOps.h"
 #include <stdio.h>
 #include <stdlib.h>
 
