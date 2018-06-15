@@ -74,3 +74,8 @@ Matrix * mul(Matrix *p, Matrix *q){
         return zeroMat(1, 1);
     }
 }
+
+double dot(Matrix *p, Matrix *q){
+    // once again need checks for errors or stupid code calls
+    return (mul(p, q) -> entries)[0]; // returns first and only entry if dot product
+}

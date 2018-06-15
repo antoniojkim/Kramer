@@ -10,4 +10,5 @@ Matrix * mul(Matrix *, Matrix *);
 
 Matrix * convolve(Matrix *, Matrix *);
 
+double dot(Matrix *p, Matrix *q);
 #endif //__HEADER_BINARY

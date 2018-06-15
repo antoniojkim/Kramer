@@ -76,6 +76,13 @@ int main() {
     displayMat(id12);
     printf("\n");
 
+    swapRows(id12, 1, 5);
+    displayMat(id12);
+    printf("\n");
+
+    Matrix *flat = flatten(ab);
+    displayMat(flat);
+    printf("\n");
 
     return 0;
 }
