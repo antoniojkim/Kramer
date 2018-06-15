@@ -11,6 +11,7 @@ typedef struct {
 
 void displayMat(Matrix *);
 void clearMat(Matrix *); // for memory purposes
+void setEntry(Matrix *, int row, int col, double val);
 
 Matrix * randomMat(int domain_dim, int range_dim);
 Matrix * eyeMat(int dim);

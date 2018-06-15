@@ -5,27 +5,77 @@
 
 int main() {
     
-    Matrix *id = eyeMat(10);
+    Matrix *a = eyeMat(5);
+    Matrix *b = zeroMat(5, 3);
+    displayMat(a);
+    printf("\n");
+    displayMat(b);
+    printf("\n");
+
+    setEntry(a, 1, 2, 2);
+    setEntry(a, 1, 3, 3);
+    setEntry(a, 1, 4, 4);
+    setEntry(a, 1, 5, 5);
+
+    setEntry(a, 2, 1, 0);
+    setEntry(a, 2, 3, 1);
+    setEntry(a, 2, 4, 3);
+    setEntry(a, 2, 5, 2);
+
+    setEntry(a, 3, 1, 1);
+    setEntry(a, 3, 2, 2);
+    setEntry(a, 3, 4, 0);
+    setEntry(a, 3, 5, 0);
+
+    setEntry(a, 4, 1, 1);
+    setEntry(a, 4, 2, 1);
+    setEntry(a, 4, 3, 0);
+    setEntry(a, 4, 5, -2);
+
+    setEntry(a, 5, 1, 4);
+    setEntry(a, 5, 2, 5);
+    setEntry(a, 5, 3, -1);
+    setEntry(a, 5, 4, 0);
+    
+    displayMat(a);
+    printf("\n");
+    
+    setEntry(b, 1, 1, 1);
+    setEntry(b, 1, 2, 1);
+    setEntry(b, 1, 3, 1);
+
+    setEntry(b, 2, 1, 1);
+    setEntry(b, 2, 2, 0);
+    setEntry(b, 2, 3, 1);
+
+    setEntry(b, 3, 1, 1);
+    setEntry(b, 3, 2, 0);
+    setEntry(b, 3, 3, 1);
+
+    setEntry(b, 4, 1, 1);
+    setEntry(b, 4, 2, 0);
+    setEntry(b, 4, 3, 1);
+
+    setEntry(b, 5, 1, 1);
+    setEntry(b, 5, 2, 1);
+    setEntry(b, 5, 3, 1);
+
+    displayMat(b);
+    printf("\n");
+
+    Matrix *ab = mul(a, b);
+    printf("%d, %d\n", ab ->domain_dim, ab ->range_dim);
+    displayMat(ab);
+    printf("\n");
+
+    Matrix *id = eyeMat(5);
     displayMat(id);
     printf("\n");
-    Matrix *p = zeroMat(2, 1);
-    (p -> entries)[0] = 2.0;
-    (p -> entries)[1] = 1.0;
-    displayMat(p);
+    
+    Matrix *id12 = scale(id, 12);
+    displayMat(id12);
     printf("\n");
-    Matrix *q = zeroMat(1, 2);
-    (q -> entries)[0] = -1.0;
-    (q -> entries)[1] = 8.0;
-    displayMat(q);
-    printf("\n");
-    Matrix *r = mul(p, q);
-    displayMat(r);
-    printf("\n");
-    swapRows(r, 1, 2);
-    displayMat(r);
-    printf("\n");
-    swapCols(r, 1, 2);
-    displayMat(r);
-    printf("\n");
+
+
     return 0;
 }

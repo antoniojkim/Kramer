@@ -77,6 +77,19 @@ void displayMat(Matrix *pmat){
     return;
 }
 
+void setEntry(Matrix *p, int row, int col, double val){
+
+    int n = p -> domain_dim;
+    int m = p -> range_dim;
+    if ((0 < row && row <= p -> domain_dim) && (0 < col && col <= p -> range_dim)){
+        int r = row - 1;
+        int c = col - 1;
+        (p -> entries)[r * (p -> range_dim) + c] = val;
+        return; 
+    }
+
+}
+
 bool compareDim(Matrix *p, Matrix *q){
 
     if ((p -> domain_dim == q -> domain_dim) && (p -> range_dim == q -> range_dim)){
@@ -88,7 +101,6 @@ bool compareDim(Matrix *p, Matrix *q){
     }
 }
 
-// works
 bool isSquare(Matrix *p){
 
     if (p -> domain_dim == p -> range_dim){
