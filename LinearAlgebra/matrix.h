@@ -16,6 +16,8 @@ Matrix * randomMat(int domain_dim, int range_dim);
 Matrix * eyeMat(int dim);
 Matrix * zeroMat(int domain_dim, int range_dim);
 Matrix * inputMat(int domain_dim, int range_dim);
+void swapRows(Matrix *, int row1, int row2);
+void swapCols(Matrix *, int col1, int col2);
 
 bool compareDim(Matrix *, Matrix *);
 bool isSquare(Matrix *);

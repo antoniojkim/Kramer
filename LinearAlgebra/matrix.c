@@ -32,6 +32,38 @@ Matrix * zeroMat(int domain_dim, int range_dim){
 
 }
 
+void swapRows(Matrix *p, int row1, int row2){
+
+    int n = p -> domain_dim;
+    int m = p -> range_dim;
+    double temp;
+    if ((0 < row1 && row1 <= n) && (0 < row2 && row2 <= n) && row1 != row2){
+        int r1 = row1 - 1;
+        int r2 = row2 - 1;
+        for (int i = 0; i < m; i++){
+            temp = (p -> entries)[r1 * m + i];
+            (p -> entries)[r1 * m + i] = (p -> entries)[r2 * m + i];
+            (p -> entries)[r2 * m + i] = temp;
+        }
+        return; 
+    }
+}
+void swapCols(Matrix *p, int col1, int col2){
+
+    int n = p -> domain_dim;
+    int m = p -> range_dim;
+    double temp;
+    if ((0 < col1 && col1 <= m) && (0 < col2 && col2 <= m) && col1 != col2){
+        int c1 = col1 - 1;
+        int c2 = col2 - 1;
+        for (int i = 0; i < n; i++){
+            temp = (p -> entries)[c1 + n * i];
+            (p -> entries)[c1 + i * n] = (p -> entries)[c2 + n * i];
+            (p -> entries)[c2 + i * n] = temp;
+        }
+        return; 
+    }
+}
 void displayMat(Matrix *pmat){
     
     for (int i = 0; i < pmat -> domain_dim; i++){

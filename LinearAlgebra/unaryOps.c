@@ -26,10 +26,24 @@ double trace(Matrix *pmat){
     return tr;
 }
 
+double multiplicativeTrace(Matrix *p){
+    if (isSquare(p)){
+        double mtr = 1.0;
+        for (int i = 0; i < p -> domain_dim; i++){
+            mtr *= (p -> entries)[i * (1 + p -> domain_dim)];
+        }
+        return mtr;
+    }else{
+        return 0.0; // need to add asserts or errors or something in these parts
+    }
+}
 double determinant(Matrix *p){
 
     double det;
     if (isSquare(p)){
+        if (isLowerTriangular(p) || isUpperTriangular(p)){
+            return multiplicativeTrace(p);
+        }
         if (p -> domain_dim == 1){
             return (p -> entries)[0];
         }else if(p -> domain_dim == 2){

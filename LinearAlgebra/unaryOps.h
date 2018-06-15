@@ -7,6 +7,7 @@ Matrix * transpose(Matrix *);
 Matrix * invert(Matrix *);
 
 double trace(Matrix *);
+double multiplicativeTrace(Matrix *); // product of diagonal entries
 double determinant(Matrix *);
 
 #endif //__HEADER_UNARY

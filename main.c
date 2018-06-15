@@ -5,6 +5,9 @@
 
 int main() {
     
+    Matrix *id = eyeMat(10);
+    displayMat(id);
+    printf("\n");
     Matrix *p = zeroMat(2, 1);
     (p -> entries)[0] = 2.0;
     (p -> entries)[1] = 1.0;
@@ -18,16 +21,11 @@ int main() {
     Matrix *r = mul(p, q);
     displayMat(r);
     printf("\n");
-    Matrix *rt = transpose(r);
-    displayMat(rt);
+    swapRows(r, 1, 2);
+    displayMat(r);
     printf("\n");
-    (rt -> entries)[2] = 0.0;
-    displayMat(rt);
-    printf("%i\n", isLowerTriangular(rt));
-    //(rt -> entries)[1] = 0.0;
-    displayMat(rt);
-    printf("%i\n", isUpperTriangular(rt));
-
-
+    swapCols(r, 1, 2);
+    displayMat(r);
+    printf("\n");
     return 0;
 }
