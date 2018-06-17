@@ -11,5 +11,6 @@ typedef struct {
 Polynomial * newPoly(int degree, double coeffs);
 Polynomial * randomPoly(int degree);
 
+double * roots(Polynomial *);
 
 #endif // __HEADER__POLY

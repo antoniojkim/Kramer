@@ -23,7 +23,10 @@ Matrix * addR2R(Matrix *, int row1, int row2); // add row2 to row1
 Matrix * subRFR(Matrix *, int row1, int row2); // subtract row2 from row1
 Matrix * flatten(Matrix *); // returns a 1 x (n * m) matrix
 
-double rank(Matrix *);
+int rank(Matrix *);
+int nullity(Matrix *);
+int dimension(Matrix *); // rank + nullity = dim
+
 double trace(Matrix *);
 double multiplicativeTrace(Matrix *); // product of diagonal entries
 double determinant(Matrix *);
