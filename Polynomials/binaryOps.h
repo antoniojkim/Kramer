@@ -3,9 +3,9 @@
 
 #include "polynomial.h"
 
-Polynomial * add(Polynomial *, Polynomial *);
-Polynomial * sub(Polynomial *, Polynomial *);
-Polynomial * mul(Polynomial *, Polynomial *);
-Polynomial * scale(Polynomial *, double);
+Polynomial * addPoly(Polynomial *, Polynomial *);
+Polynomial * subPoly(Polynomial *, Polynomial *);
+Polynomial * mulPoly(Polynomial *, Polynomial *);
+Polynomial * scalePoly(Polynomial *, double);
 
 #endif // __HEADER__BINARY

@@ -6,8 +6,8 @@
 
 Polynomial * initPolyMem(int n){
     // initializes a polynomial of degree n with zeros for all coefficients
-    printf("hello");
     Polynomial *p;
+    p = (Polynomial *) malloc(sizeof(Polynomial));
     p -> degree = n;
     p -> coeffs = (double *) malloc((n + 1) * sizeof(double));
     return p;

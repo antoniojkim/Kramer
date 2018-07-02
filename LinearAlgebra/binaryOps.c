@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-Matrix * add(Matrix *p, Matrix *q){
+Matrix * addMat(Matrix *p, Matrix *q){
     
     if (compareDim(p, q)){
         int n = p -> domain_dim;
@@ -22,7 +22,7 @@ Matrix * add(Matrix *p, Matrix *q){
     
 }
 
-Matrix * scale(Matrix *p, double scalar){
+Matrix * scaleMat(Matrix *p, double scalar){
 
     Matrix *scaledMat = zeroMat(p -> domain_dim, p -> range_dim);
     if (scalar == 0){
@@ -41,7 +41,7 @@ Matrix * scale(Matrix *p, double scalar){
     }
 }
 
-Matrix * sub(Matrix *p, Matrix *q){
+Matrix * subMat(Matrix *p, Matrix *q){
 
     if (compareDim(p, q)){
         Matrix *qNeg = scale(q, -1);
@@ -51,7 +51,7 @@ Matrix * sub(Matrix *p, Matrix *q){
     }
 }
 
-Matrix * mul(Matrix *p, Matrix *q){
+Matrix * mulMat(Matrix *p, Matrix *q){
 
     if (commute(p, q)){
 
@@ -75,7 +75,7 @@ Matrix * mul(Matrix *p, Matrix *q){
     }
 }
 
-double dot(Matrix *p, Matrix *q){
+double dotMat(Matrix *p, Matrix *q){
     // once again need checks for errors or stupid code calls
     return (mul(p, q) -> entries)[0]; // returns first and only entry if dot product
 }

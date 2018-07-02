@@ -3,12 +3,12 @@
 
 #include "matrix.h"
 
-Matrix * add(Matrix *, Matrix *);
-Matrix * sub(Matrix *, Matrix *);
-Matrix * scale(Matrix *, double);
-Matrix * mul(Matrix *, Matrix *);
+Matrix * addMat(Matrix *, Matrix *);
+Matrix * subMat(Matrix *, Matrix *);
+Matrix * scaleMat(Matrix *, double);
+Matrix * mulMat(Matrix *, Matrix *);
 
-Matrix * convolve(Matrix *, Matrix *);
+Matrix * convolveMat(Matrix *, Matrix *);
 
-double dot(Matrix *p, Matrix *q);
+double dotMat(Matrix *p, Matrix *q);
 #endif //__HEADER_BINARY
