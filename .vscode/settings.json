@@ -1,6 +1,8 @@
 {
     "files.associations": {
         "matrix.h": "c",
-        "binaryops.h": "c"
+        "binaryops.h": "c",
+        "sorts.h": "c",
+        "iterator": "cpp"
     }
 }
