@@ -4,5 +4,8 @@
         "binaryops.h": "c",
         "sorts.h": "c",
         "iterator": "cpp"
+    },
+    "code-runner.executorMap": {
+        "c": "gcc LinearAlgebra/*.c main.c -o main ; if ($?) { ./main }"
     }
 }

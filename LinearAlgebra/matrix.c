@@ -95,31 +95,19 @@ void setEntry(Matrix *p, int row, int col, double val) {
     }
 }
 
-bool compareDim(Matrix *p, Matrix *q) {
-    if ((p->domain_dim == q->domain_dim) && (p->range_dim == q->range_dim)) {
-        return true;
-    } else {
-        return false;
-    }
+inline bool compareDim(Matrix *p, Matrix *q) {
+    return (p->domain_dim == q->domain_dim) && (p->range_dim == q->range_dim);
 }
 
-bool isSquare(Matrix *p) {
-    if (p->domain_dim == p->range_dim) {
-        return true;
-    } else {
-        return false;
-    }
+inline bool isSquare(Matrix *p) {
+    return (p->domain_dim == p->range_dim);
 }
 
-bool commute(Matrix *p, Matrix *q) {
-    if (p->range_dim == q->domain_dim) {
-        return true;
-    } else {
-        return false;
-    }
+inline bool commute(Matrix *p, Matrix *q) {
+    return (p->range_dim == q->domain_dim);
 }
 
-bool isLowerTriangular(Matrix *p) {
+inline bool isLowerTriangular(Matrix *p) {
     if (isSquare(p)) {
         int n = p->domain_dim;
         for (int i = 1; i < n; i++) {
@@ -152,11 +140,7 @@ bool isUpperTriangular(Matrix *p) {
 }
 
 bool isDiagonalMat(Matrix *p) {
-    if (isUpperTriangular(p) && isLowerTriangular(p)) {
-        return true;
-    } else {
-        return false;
-    }
+    return (isUpperTriangular(p) && isLowerTriangular(p));
 }
 
 double trace(Matrix *pmat) {
@@ -208,13 +192,25 @@ double determinant(Matrix *p) {
 
 Matrix *flatten(Matrix *p) {
     // need to add check if cannot be flattened or something
-    int n = p->domain_dim;
-    int m = p->range_dim;
+    
+    // int n = p->domain_dim;
+    // int m = p->range_dim;
 
-    Matrix *flat = zeroMat(1, n * m);
+    // Matrix *flat = zeroMat(1, n * m);
 
-    for (int i = 0; i < n * m; i++) {
-        (flat->entries)[i] = (p->entries)[i];
+    // for (int i = 0; i < n * m; i++) {
+    //     (flat->entries)[i] = (p->entries)[i];
+    // }
+
+    int nm = (p->domain_dim) * (p->range_dim);
+
+    Matrix *flat = zeroMat(1, nm);
+    double* flatEntries = (flat->entries);
+    double* pEntries = (p->entries);
+
+    while (--nm >= 0){
+        flatEntries[nm] = pEntries[nm];
     }
+
     return flat;
 }

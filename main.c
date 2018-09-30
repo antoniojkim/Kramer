@@ -1,12 +1,11 @@
-#include "LinearAlgebra/unaryOps.h"
-#include "LinearAlgebra/binaryOps.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include "LinearAlgebra/binaryOps.h"
+#include "LinearAlgebra/unaryOps.h"
 
-//gcc LinearAlgebra/*.c main.c -o main ; if ($?) { ./main }
+// gcc LinearAlgebra/*.c main.c -o main ; if ($?) { ./main }
 
 int main() {
-    
     Matrix *a = eyeMat(5);
     Matrix *b = zeroMat(5, 3);
     // displayMat(a);
@@ -38,10 +37,10 @@ int main() {
     setEntry(a, 5, 2, 5);
     setEntry(a, 5, 3, -1);
     setEntry(a, 5, 4, 0);
-    
+
     // displayMat(a);
     // printf("\n");
-    
+
     setEntry(b, 1, 1, 1);
     setEntry(b, 1, 2, 1);
     setEntry(b, 1, 3, 1);
@@ -65,28 +64,33 @@ int main() {
     // displayMat(b);
     // printf("\n");
 
-    for (int i = 0; i<100000; ++i){
-        Matrix *ab = mulMat(a, b);
-    }
-    // printf("%d, %d\n", ab ->domain_dim, ab ->range_dim);
-    // displayMat(ab);
-    // printf("\n");
+    // for (int i = 0; i<100000; ++i){
+    Matrix *ab = mulMat(a, b);
+    // }
+    printf("%d, %d\n", ab->domain_dim, ab->range_dim);
+    displayMat(ab);
+    printf("\n");
 
-    // Matrix *id = eyeMat(5);
-    // displayMat(id);
-    // printf("\n");
-    
-    // Matrix *id12 = scale(id, 12);
-    // displayMat(id12);
-    // printf("\n");
+    Matrix *ab2 = addMat(ab, ab);
+    // }
+    displayMat(ab2);
+    printf("\n");
+
+    Matrix *id = eyeMat(5);
+    displayMat(id);
+    printf("\n");
+
+    Matrix *id12 = scaleMat(id, 12);
+    displayMat(id12);
+    printf("\n");
 
     // swapRows(id12, 1, 5);
     // displayMat(id12);
     // printf("\n");
 
-    // Matrix *flat = flatten(ab);
-    // displayMat(flat);
-    // printf("\n");
+    Matrix *flat = flatten(ab);
+    displayMat(flat);
+    printf("\n");
 
     return 0;
 }
